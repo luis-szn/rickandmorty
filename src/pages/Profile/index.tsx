@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import {useGlobal} from '../../hook/globalContext'
-
 import { useNavigation } from '@react-navigation/native';
 import {propsStack} from '../../routes/Models'
 
@@ -70,7 +69,7 @@ export function Profile(props: CharacterProps){
 
     const CharacterUrl = "https://rickandmortyapi.com/api/character/" + props.route.params.characterId;
  
-    const getCharacter = (url: string) => {
+    const getCharacter = ( url: string ) => {
         fetch(url)
             .then(response => response.json())
             .then(data => setCharacter(data))
