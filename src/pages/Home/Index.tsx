@@ -44,7 +44,7 @@ export function Home(){
         getCharactersCount(CharactersUrl);
     }, [currentPage])
 
-    const getCharactersBySearch = (url: string) => {
+    const getCharactersBySearch = ( url: string ) => {
         fetch(url)
             .then(response => response.json())
             .then(data => setCharacters(data.results))
