@@ -10,9 +10,9 @@ export const BackButton = styled.TouchableOpacity`
     position: absolute;
     justify-content: center;
     align-items: center;
+    background: #1E2047;
     width: 40px;
     height: 40px;
-    background: #1E2047;
     border-radius: 40px;
     left: 20px;
     top: 20px;
