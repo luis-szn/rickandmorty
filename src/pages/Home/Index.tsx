@@ -3,7 +3,6 @@ import {
         Container, 
         Header, 
         HeaderTitle, 
-        Loader, 
         SearchContainer, 
         SearchInput, 
         TotalList 
