@@ -67,6 +67,8 @@ export function Profile(props: CharacterProps){
         status:'',
     });
 
+    const [heart, setHeart] = useState('hearto');
+
     const CharacterUrl = "https://rickandmortyapi.com/api/character/" + props.route.params.characterId;
  
     const getCharacter = ( url: string ) => {
@@ -82,8 +84,18 @@ export function Profile(props: CharacterProps){
     }, [])
     
     const navigation = useNavigation<propsStack>();
-    const {favorite} = useGlobal();
+    const {favorite, setFavorite} = useGlobal();
     console.log(favorite);
+
+    function handleFavorite(){
+        setFavorite(!favorite);
+        if(!favorite){
+            setHeart('heart');
+        }else{
+            setHeart('hearto');
+        }
+    }
+
     return(
         
         <Container>
@@ -93,8 +105,8 @@ export function Profile(props: CharacterProps){
             <InfoContainer>
                 <TitleContainer>
                     <TitleName>{character.name}</TitleName>
-                    <FavoriteContainer>
-                        <Icon  name="hearto" size={25} color='#1E2047'>{favorite}</Icon>
+                    <FavoriteContainer onPress={handleFavorite}>
+                        <Icon  name={heart} size={25} color='#1E2047'>{favorite}</Icon>
                     </FavoriteContainer>
                 </TitleContainer>
                 <OrganizeContainer>

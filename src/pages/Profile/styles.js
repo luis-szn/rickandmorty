@@ -41,7 +41,7 @@ export const TitleContainer = styled.View`
     align-items: center;
     flex-direction: row;
 `;
-export const FavoriteContainer = styled.View`
+export const FavoriteContainer = styled.TouchableOpacity`
     margin:0;
     padding:0;
     justify-content:center;
