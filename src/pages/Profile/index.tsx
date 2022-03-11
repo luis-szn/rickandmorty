@@ -67,7 +67,6 @@ export function Profile(props: CharacterProps){
         status:'',
     });
 
-    const [heart, setHeart] = useState('hearto');
 
     const CharacterUrl = "https://rickandmortyapi.com/api/character/" + props.route.params.characterId;
  
@@ -84,7 +83,7 @@ export function Profile(props: CharacterProps){
     }, [])
     
     const navigation = useNavigation<propsStack>();
-    const {favorite, setFavorite} = useGlobal();
+    const {favorite, setFavorite, heart, setHeart} = useGlobal();
     console.log(favorite);
 
     function handleFavorite(){

@@ -7,6 +7,8 @@ import React, {
 interface GlobalContextData{
     favorite: boolean;
     setFavorite(value: boolean): void;
+    heart: string;
+    setHeart(value: string): void;
 
 }
 
@@ -18,12 +20,15 @@ const GlobalContext = createContext<GlobalContextData>({} as GlobalContextData);
 
 export const GlobalProvider = ({children}: ProviderProps) => {
     const[favorite,setFavorite] = useState(false);
+    const [heart, setHeart] = useState('hearto');
 
     return (
         <GlobalContext.Provider
             value={{
                favorite,
-               setFavorite
+               setFavorite,
+               heart,
+               setHeart
             }}
         >
             {children}
