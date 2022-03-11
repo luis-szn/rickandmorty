@@ -88,7 +88,7 @@ export function Home(){
                 renderItem={({ item }) =>(
                     <CharacterCard characterProp={item} /> 
                   )}
-                onEndReached={HandleLoadMore}
+                onEndReached={ HandleLoadMore }
                 onEndReachedThreshold={0.1}
                 
              />
