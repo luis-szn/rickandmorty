@@ -1,5 +1,10 @@
 import React from 'react';
-import {Container, WelcomeButton, Wallpaper, TitleButton} from './styles';
+import {
+  Container, 
+  WelcomeButton, 
+  Wallpaper, 
+  TitleButton
+} from './styles';
 import Icon from 'react-native-vector-icons/AntDesign';
 import Background from '../../../public/images/wallpaper.png';
 

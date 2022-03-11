@@ -10,7 +10,7 @@ import {
 
 import Icon from 'react-native-vector-icons/AntDesign';
 import { CharacterCard } from '../../components/CharacterCard';
-import { ActivityIndicator, FlatList, View } from 'react-native';
+import {FlatList} from 'react-native';
 
 
 export function Home(){
@@ -19,7 +19,6 @@ export function Home(){
     const [charactersCount, setCharactersCount] = useState(0);
     const [searchText, setSearchText] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
-
 
     const CharactersUrl = "https://rickandmortyapi.com/api/character"+"/?page="+currentPage;
     const CharactersUrlforSearch = "https://rickandmortyapi.com/api/character";
@@ -50,6 +49,7 @@ export function Home(){
             .then(data => setCharacters(data.results))
             .catch(error => console.log(error))
     };
+    
     const getCharactersBySearchCount = (url: string) => {
         fetch(url)
             .then(response => response.json())

@@ -5,28 +5,37 @@ import React, {
     useState
 } from 'react'
 interface GlobalContextData{
-    favorite: boolean;
-    setFavorite(value: boolean): void;
+    favorite: number[];
+    handleFavorite: (character: number) => void
     heart: string;
     setHeart(value: string): void;
 
 }
-
 interface ProviderProps{
     children: ReactNode;
 }
 
-const GlobalContext = createContext<GlobalContextData>({} as GlobalContextData);
+const GlobalContext = createContext({} as GlobalContextData);
 
 export const GlobalProvider = ({children}: ProviderProps) => {
-    const[favorite,setFavorite] = useState(false);
+    const[favorite,setFavorite] = useState<number[]>([]);
     const [heart, setHeart] = useState('hearto');
+
+    function handleFavorite(id : number ){
+        const favorites = [...favorite]
+        if(favorites.includes(id)){
+            setFavorite([...favorites]);
+        }else{
+            setFavorite([...favorites, id]);
+            setHeart('heart');
+        }
+    }   
 
     return (
         <GlobalContext.Provider
             value={{
                favorite,
-               setFavorite,
+               handleFavorite,
                heart,
                setHeart
             }}

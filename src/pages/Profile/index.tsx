@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import {useGlobal} from '../../hook/globalContext'
 import { useNavigation } from '@react-navigation/native';
-import {propsStack} from '../../routes/Models'
-
-import { Alert, Linking } from "react-native";
+import {propsStack} from '../../routes/Models';
 import Icon from 'react-native-vector-icons/AntDesign';
+
+import { 
+    Alert, 
+    Linking 
+} from "react-native";
 import { 
     BackButton, 
     Container, 
@@ -39,22 +42,6 @@ const openURL = async(url : any) => {
     }
 }
 
-export interface characterInterface {
-    id: number;
-    image: string;
-    name: String;
-    species: String;
-    gender: String;
-    location:{
-        name: String;
-    }
-    origin:{
-        name: String;
-    }
-    status: String;
-
-}
-
 export function Profile(props: CharacterProps){
 
     const [character, setCharacter] = useState({
@@ -66,7 +53,6 @@ export function Profile(props: CharacterProps){
         origin:{name:''},
         status:'',
     });
-
 
     const CharacterUrl = "https://rickandmortyapi.com/api/character/" + props.route.params.characterId;
  
@@ -83,17 +69,8 @@ export function Profile(props: CharacterProps){
     }, [])
     
     const navigation = useNavigation<propsStack>();
-    const {favorite, setFavorite, heart, setHeart} = useGlobal();
-    console.log(favorite);
+    const {favorite, handleFavorite, heart} = useGlobal();
 
-    function handleFavorite(){
-        setFavorite(!favorite);
-        if(!favorite){
-            setHeart('heart');
-        }else{
-            setHeart('hearto');
-        }
-    }
 
     return(
         
@@ -101,13 +78,15 @@ export function Profile(props: CharacterProps){
             <PhotoContainer >
                  <Photo source={{uri : character.image}}/>
             </PhotoContainer> 
+
             <InfoContainer>
                 <TitleContainer>
                     <TitleName>{character.name}</TitleName>
-                    <FavoriteContainer onPress={handleFavorite}>
-                        <Icon  name={heart} size={25} color='#1E2047'>{favorite}</Icon>
+                    <FavoriteContainer onPress={() => handleFavorite(props.route.params.characterId)}>
+                        <Icon  name={heart} size={25} color='#1E2047'/>
                     </FavoriteContainer>
                 </TitleContainer>
+
                 <OrganizeContainer>
                     <OrganizeIndividualContainer>
                         <TopicName>Species</TopicName>
@@ -118,21 +97,20 @@ export function Profile(props: CharacterProps){
                         <TopicName>Gender</TopicName>
                         <TopicDescription>{character.gender}</TopicDescription>
                     </OrganizeIndividualContainer>
-                    
                 </OrganizeContainer>
+
                 <TopicName>Location</TopicName>
                 <TopicDescription numberOfLines = { 1 }>{character.location.name}</TopicDescription>
+
                 <OrganizeContainer>
                     <OrganizeIndividualContainer>
                         <TopicName>Origin</TopicName>
                         <TopicDescription numberOfLines = { 1 } >{character.origin.name}</TopicDescription>
                     </OrganizeIndividualContainer>
-                   
                     <OrganizeIndividualContainer>
                         <TopicName>Status</TopicName>
                         <TopicDescription>{character.status}</TopicDescription>
                     </OrganizeIndividualContainer>
-                    
                 </OrganizeContainer>
                 
             </InfoContainer>

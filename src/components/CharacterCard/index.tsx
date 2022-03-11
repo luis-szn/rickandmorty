@@ -1,8 +1,15 @@
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
-import {propsStack} from '../../routes/Models'
-import { Container, InfoContainer, Photo, PhotoContainer, TitleName, TopicDescription, TopicName } from './styles';
-
+import {propsStack} from '../../routes/Models';
+import { 
+    Container, 
+    InfoContainer, 
+    Photo, 
+    PhotoContainer, 
+    TitleName, 
+    TopicDescription, 
+    TopicName 
+} from './styles';
 
 export function CharacterCard({characterProp}  : {characterProp: any} ) { 
     const navigation = useNavigation<propsStack>();
@@ -22,10 +29,7 @@ export function CharacterCard({characterProp}  : {characterProp: any} ) {
                         <TopicName>Origin:</TopicName>
                         <TopicDescription numberOfLines = { 1 } >{characterProp.origin.name}</TopicDescription> 
                     </InfoContainer>
-                </Container>   
-           
-            
-    
+            </Container>   
     )
 }
 

@@ -11,7 +11,6 @@ const Stack = createNativeStackNavigator<propsNavigationStack>();
 
 export default function AppRoutes (){
   return (
-  
     <NavigationContainer>
         <Stack.Navigator 
           initialRouteName='Home'
