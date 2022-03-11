@@ -1,5 +1,9 @@
-import React, { createContext,ReactNode,useContext, useState} from 'react'
-
+import React, { 
+    createContext,
+    ReactNode,
+    useContext, 
+    useState
+} from 'react'
 interface GlobalContextData{
     favorite: boolean;
     setFavorite(value: boolean): void;
