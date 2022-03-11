@@ -13,7 +13,7 @@ export default function AppRoutes (){
   return (
     <NavigationContainer>
         <Stack.Navigator 
-          initialRouteName='Home'
+          initialRouteName='Welcome'
           screenOptions={{
             headerShown: false
           }}
