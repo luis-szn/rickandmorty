@@ -15,7 +15,14 @@ import {FlatList} from 'react-native';
 
 export function Home(){
     
-    const [characters, setCharacters] = useState([]);
+    interface character{
+        image: undefined;
+        name: string;
+        species: string;
+        origin: string;
+    }
+
+    const [characters, setCharacters] = useState<character[]>([]);
     const [charactersCount, setCharactersCount] = useState(0);
     const [searchText, setSearchText] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
