@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
-import {propsStack} from '../../routes/Models';
+import {propsStack} from '../../routes/types';
 import { 
     Container, 
     InfoContainer, 
