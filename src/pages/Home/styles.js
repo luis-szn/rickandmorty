@@ -34,7 +34,7 @@ export const TotalList = styled.Text`
 
 export const SearchContainer = styled.View`
     background: #FFFFFF;
-    margin: -25px 15px 15px 15px;
+    margin: -25px 15px 15px;
     padding-left: 15px;
     border-radius: 6px;
     width: auto;
