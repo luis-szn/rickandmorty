@@ -13,6 +13,7 @@ import {
 
 export function CharacterCard({characterProp}  : {characterProp: any} ) { 
     const navigation = useNavigation<propsStack>();
+
     return(
             <Container
                 key={characterProp.id}

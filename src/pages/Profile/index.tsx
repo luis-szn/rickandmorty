@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {useGlobal} from '../../hook/globalContext'
 import { useNavigation } from '@react-navigation/native';
-import {propsStack} from '../../routes/Models';
+import {propsStack} from '../../routes/types';
 import Icon from 'react-native-vector-icons/AntDesign';
 
 import { 
@@ -22,13 +22,16 @@ import {
     TitleSearchGoogle, 
     TopicDescription, 
     TopicName ,
-    FavoriteContainer
+    FavoriteContainer,
+    StatusDescription
 } from "./styles";
 
 type CharacterProps = {
     characterId: String
     route: any
 }
+
+
 
 const SearchGoogleUrl = "https://www.google.com/search?q=";
 
@@ -109,7 +112,7 @@ export function Profile(props: CharacterProps){
                     </OrganizeIndividualContainer>
                     <OrganizeIndividualContainer>
                         <TopicName>Status</TopicName>
-                        <TopicDescription>{character.status}</TopicDescription>
+                        <StatusDescription lifeStatus={character.status}>{character.status}</StatusDescription>
                     </OrganizeIndividualContainer>
                 </OrganizeContainer>
                 
