@@ -27,7 +27,7 @@ export function Home(){
     const [searchText, setSearchText] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
 
-    const CharactersUrl = "https://rickandmortyapi.com/api/character"+"/?page="+currentPage;
+    const CharactersUrl = `https://rickandmortyapi.com/api/character/?page=${currentPage}`;
     const CharactersUrlforSearch = "https://rickandmortyapi.com/api/character";
  
     const getCharacters = (url: string) => {
