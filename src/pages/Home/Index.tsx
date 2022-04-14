@@ -16,7 +16,7 @@ import {FlatList} from 'react-native';
 export function Home(){
     
     interface character{
-        image: undefined;
+        image: string;
         name: string;
         species: string;
         origin: string;
