@@ -33,7 +33,7 @@ export function Home(){
     const getCharacters = (url: string) => {
         fetch(url)
             .then(response => response.json())
-            .then(data => {setCharacters(characters.concat(data.results)); setCharactersCount(data.info.count)})
+            .then(data => {setCharacters([...characters, ...data.results]); setCharactersCount(data.info.count)})
             .catch(error => console.log(error))
 
     };
