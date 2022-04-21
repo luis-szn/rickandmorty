@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import { 
         Container, 
         Header, 
@@ -31,9 +32,8 @@ export function Home(){
     const CharactersUrlforSearch = "https://rickandmortyapi.com/api/character";
  
     const getCharacters = (url: string) => {
-        fetch(url)
-            .then(response => response.json())
-            .then(data => {setCharacters([...characters, ...data.results]); setCharactersCount(data.info.count)})
+        axios(url)
+            .then(response => {setCharacters([...characters, ...response.data.results]); setCharactersCount(response.data.info.count)})
             .catch(error => console.log(error))
 
     };
@@ -43,16 +43,14 @@ export function Home(){
     }, [currentPage])
 
     const getCharactersBySearch = ( url: string ) => {
-        fetch(url)
-            .then(response => response.json())
-            .then(data => setCharacters(data.results))
+        axios(url)
+            .then(response => setCharacters(response.data.results))
             .catch(error => console.log(error))
     };
     
     const getCharactersBySearchCount = (url: string) => {
-        fetch(url)
-            .then(response => response.json())
-            .then(data => setCharactersCount(data.info.count))
+        axios(url)
+            .then(response => setCharactersCount(response.data.info.count))
             .catch(error => console.log(error))
     };
 
